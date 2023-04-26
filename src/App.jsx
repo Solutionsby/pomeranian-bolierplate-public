@@ -7,6 +7,8 @@ import { Blocks } from './App/Blocks';
 import { Layout } from './App/Layout';
 import { Dashboard } from './App/Dashboard';
 import { Exercises } from './App/Exercises';
+import { Calendar } from './App/Components/Calendar/Calendar';
+import { Setings } from './App/Components/Setings/Setings';
 
 export function App() {
   return (
@@ -17,6 +19,8 @@ export function App() {
           <Route path="dashboard/*" element={<Dashboard />} />
           <Route path="exercises/*" element={<Exercises />} />
           <Route path="blocks/*" element={<Blocks />} />
+          <Route path="calendar/*" element={<Calendar />} />
+          <Route path="setings/*" element={<Setings />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

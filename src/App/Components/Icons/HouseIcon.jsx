@@ -1,4 +1,4 @@
-export function HouseIcon({ className = '' }) {
+export function HouseIcon({ className = 'icon' }) {
   return (
     <svg
       width="22"

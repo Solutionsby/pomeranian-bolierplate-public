@@ -1,4 +1,4 @@
-export function EditIcon({ className = '' }) {
+export function EditIcon({ className = 'icon' }) {
   return (
     <svg
       width="23"

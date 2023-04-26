@@ -1,4 +1,4 @@
-export function ElementIcon({ className = '' }) {
+export function ElementIcon({ className = 'icon' }) {
   return (
     <svg
       width="22"

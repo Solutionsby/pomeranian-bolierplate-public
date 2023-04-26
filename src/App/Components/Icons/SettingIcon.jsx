@@ -1,4 +1,4 @@
-export function SettingIcon({ className = '' }) {
+export function SettingIcon({ className = 'icon' }) {
   return (
     <svg
       id="svg-icon-setting"
