@@ -1,0 +1,57 @@
+.exercise-item-contetn {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 40vh;
+  width: 100%;
+}
+
+h1 {
+  position: relative;
+  top: 1vh;
+  left: 15%;
+  font-size: 40px;
+}
+
+form {
+  position: relative;
+  top: 3vh;
+  left: 15%;
+}
+input {
+  width: 488px;
+  height: 48px;
+  border: solid black 1px;
+}
+
+.someBtn {
+  display: flex;
+  position: relative;
+  top: 5vh;
+  left: 15%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 36px;
+  gap: 16px;
+  width: 326px;
+  height: 56px;
+  font-size: 18px;
+  color: white;
+  background-color: red;
+}
+.placeHolder {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  height: 100%;
+  right: 0;
+  top: 5vh;
+  font-size: 22px;
+}
