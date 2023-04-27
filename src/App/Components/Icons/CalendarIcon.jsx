@@ -78,8 +78,8 @@ export function CalendarIcon({ className = 'icon' }) {
       <path
         d="M7.60314 15.8087H7.61137"
         stroke="#000"
-        stroke-width="1.91667"
-        stroke-linecap="round"
+        strokeWidth="1.91667"
+        strokeLinecap="round"
         stroke-linejoin="round"
       />
     </svg>

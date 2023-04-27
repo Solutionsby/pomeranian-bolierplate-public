@@ -6,6 +6,7 @@ import { HouseIcon } from '../Components/Icons/HouseIcon';
 import { EditIcon } from '../Components/Icons/EditIcon';
 import { ElementIcon } from '../Components/Icons/ElementIcon';
 import { SettingIcon } from '../Components/Icons/SettingIcon';
+import { PersonalCardIcon } from '../Components/Icons/PersonalCardIcon';
 
 export function AppAside() {
   return (
@@ -16,6 +17,12 @@ export function AppAside() {
             <NavLink className="aside-row" to="dashboard">
               <HouseIcon />
               DashBoard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="aside-row" to="myCv">
+              <PersonalCardIcon />
+              Moje Cv
             </NavLink>
           </li>
           <li>
