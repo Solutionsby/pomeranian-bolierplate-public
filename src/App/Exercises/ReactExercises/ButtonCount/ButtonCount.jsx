@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './styles.css';
 
 export const ButtonCount = () => {
-  let [count, setCount] = useState(1);
+  let [count, setCount] = useState(0);
   let x = 'wanish';
   if (count >= 5) {
     x = 'activeText';
