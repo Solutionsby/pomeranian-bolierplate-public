@@ -55,12 +55,3 @@ input {
   top: 5vh;
   font-size: 22px;
 }
-
-.wrapper p {
-  display: flex;
-  position: absolute;
-  color: blue;
-  font-size: 35px;
-  top: 30vh;
-  left: 15%;
-}
