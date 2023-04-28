@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './styles.css';
 
 export const ButtonCount = () => {
-  let [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
   const [show, SetShow] = useState(false);
 
   const HandleClick = () => {

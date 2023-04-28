@@ -1,21 +1,19 @@
 import { useState } from 'react';
 import './styles.css';
 
-export const ButtonCount = () => {
-  let [count, setCount] = useState(0);
-  let x = 'wanish';
-  if (count >= 5) {
-    x = 'activeText';
-    count = 0;
-  }
+export const ButtonTextWanish = () => {
+  const [show, setShow] = useState();
 
+  const toggleShow = () => {
+    setShow(!show);
+  };
   return (
     <div className="wrapper">
-      <h1>Kliknij 5 razy</h1>
-      <button className="someBtn" onClick={() => setCount(count + 1)}>
-        Kliknełeś {count} razy
+      <h1>See or Not</h1>
+      <button className="someBtn" onClick={toggleShow}>
+        {show ? 'Ukryj' : 'Pokaz Tekst'}
       </button>
-      <div className={x}>Ukryta wiadomość </div>
+      {show && <p>Pokazuje się </p>}
     </div>
   );
 };
