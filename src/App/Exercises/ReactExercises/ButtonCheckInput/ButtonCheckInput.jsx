@@ -29,7 +29,7 @@ export const ButtonCheckInput = () => {
         </label>
       </form>
       <p>
-        Twoja Liczba to {message} Liczba ta jest{' '}
+        Twoja Liczba to {message} Liczba ta jest
         {message <= 10 ? 'jest Mniejsza' : 'jest wieksza bądź równa 10'}
       </p>
       <button className="someBtn" onClick={handleClick}>
