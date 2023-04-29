@@ -4,6 +4,7 @@ import { ButtonCountVievRouterMetaData } from './ButtonCount/router-data';
 import { ButtonTextWanishVievRouterMetaData } from './ButtonTextWanish/router-data';
 
 import { SubRouteExampleMetaData } from './SubRouteExample/router-data';
+import { TwoInputVievRouterMetaData } from './TwoInput/router-data';
 import { welcomeVievRouterMetaData } from './WelcomView/router-data';
 
 export const blockRouterMetaData = [
@@ -12,5 +13,6 @@ export const blockRouterMetaData = [
   ButtonCountVievRouterMetaData,
   ButtonTextWanishVievRouterMetaData,
   ButtonCheckInputVievRouterMetaData,
+  TwoInputVievRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
