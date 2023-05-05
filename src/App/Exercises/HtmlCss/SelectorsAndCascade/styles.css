@@ -6,44 +6,25 @@
   animation-timing-function: linear;
 }
 
-.klasaDiva {
-  width: 40%;
-  animation-name: colorChange;
-  animation-duration: 4s;
-  animation-timing-function: linear;
+.wrapper.klasaDiva {
   animation-delay: 1s;
 }
-#SomeID {
+.wrapper #SomeID {
   color: blue;
-  animation-name: colorChange;
-  animation-duration: 4s;
-  animation-timing-function: linear;
   animation-delay: 1.5s;
 }
-div:nth-of-type(3) {
+.wrapper div:nth-of-type(3) {
   color: blueviolet;
-  animation-name: colorChange;
-  animation-duration: 4s;
-  animation-timing-function: linear;
   animation-delay: 2s;
 }
-div:nth-child(4) {
+.wrapper div:nth-child(4) {
   color: brown;
-  animation-name: colorChange;
-  animation-duration: 4s;
-  animation-timing-function: linear;
   animation-delay: 2.5s;
 }
-div:nth-of-type(5) {
-  animation-name: colorChange;
-  animation-duration: 4s;
-  animation-timing-function: linear;
+.wrapper div:nth-of-type(5) {
   animation-delay: 3s;
 }
-div div:nth-last-of-type(2) + div {
-  animation-name: colorChange;
-  animation-duration: 4s;
-  animation-timing-function: linear;
+.wrapper div:nth-last-of-type(2) + div {
   animation-delay: 3.5s;
   color: aqua;
 }
