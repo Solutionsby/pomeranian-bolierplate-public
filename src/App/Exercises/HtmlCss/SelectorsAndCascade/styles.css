@@ -1,28 +1,55 @@
-div div {
+.wrapper div {
   font-family: sans-serif;
+  animation-name: colorChange;
+  animation-duration: 4s;
+  animation-iteration-count: 5;
+  animation-timing-function: linear;
 }
 
 .klasaDiva {
   width: 40%;
   animation-name: colorChange;
-  animation-duration: 10s;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-delay: 1s;
 }
 #SomeID {
   color: blue;
+  animation-name: colorChange;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-delay: 1.5s;
 }
 div:nth-of-type(3) {
   color: blueviolet;
+  animation-name: colorChange;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
 }
 div:nth-child(4) {
   color: brown;
+  animation-name: colorChange;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-delay: 2.5s;
+}
+div:nth-of-type(5) {
+  animation-name: colorChange;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-delay: 3s;
 }
 div div:nth-last-of-type(2) + div {
+  animation-name: colorChange;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-delay: 3.5s;
   color: aqua;
 }
 
 @keyframes colorChange {
   0% {
-    left: 0;
     color: red;
   }
   20% {
@@ -39,6 +66,5 @@ div div:nth-last-of-type(2) + div {
   }
   100% {
     color: violet;
-    font-size: 2vh;
   }
 }
