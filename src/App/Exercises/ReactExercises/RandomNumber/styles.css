@@ -1,0 +1,57 @@
+div.wrapper {
+  flex-direction: column;
+  height: 50vh;
+}
+form {
+  display: flex;
+  position: relative;
+  width: 200px;
+}
+
+input {
+  position: absolute;
+  display: flex;
+  width: 150px;
+  top: 5vh;
+}
+input:nth-of-type(2) {
+  top: 15vh;
+}
+
+div.wrapper p {
+  color: black;
+  font-size: 1rem;
+  position: absolute;
+  width: 250%;
+  top: 0;
+  left: 0;
+}
+div.wrapper p:nth-of-type(2) {
+  top: 12vh;
+}
+div.wrapper p:nth-of-type(3) {
+  top: 20vh;
+  font-size: 1.5em;
+}
+button {
+  display: flex;
+  position: absolute;
+  top: 35vh;
+  left: 30vw;
+  height: 5vh;
+  width: 15vw;
+  border: 1px black solid;
+  border-radius: 10px;
+  background-color: red;
+  color: white;
+  font-size: 1em;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.ResetButton {
+  left: 50vw;
+}
+.RandomButton {
+  left: 10vw;
+}
