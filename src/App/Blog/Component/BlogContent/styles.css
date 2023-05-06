@@ -1,0 +1,14 @@
+.blogContent {
+  position: relative;
+  left: 2.5vw;
+}
+.blog-content-text {
+  display: flex;
+  position: relative;
+  width: 80%;
+  align-content: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  white-space: pre-line;
+}
