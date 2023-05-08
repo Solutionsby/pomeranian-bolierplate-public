@@ -1,4 +1,4 @@
-div.postWrapper {
+div.post-wrapper {
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -13,7 +13,7 @@ div.postWrapper {
   transition: 0.8s;
 }
 
-div.postWrapper:hover {
+div.post-wrapper:hover {
   color: white;
   background-color: #23213d;
 }
