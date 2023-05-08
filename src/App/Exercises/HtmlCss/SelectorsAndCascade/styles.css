@@ -2,50 +2,92 @@
   font-family: sans-serif;
   animation-name: colorChange;
   animation-duration: 4s;
-  animation-iteration-count: 5;
+  animation-iteration-count: 10;
   animation-timing-function: linear;
+  display: flex;
+  position: relative;
+  top: 1vh;
 }
 
 .wrapper.klasaDiva {
-  animation-delay: 1s;
+  animation-delay: 0.5s;
 }
 .wrapper #SomeID {
   color: blue;
-  animation-delay: 1.5s;
+  animation-delay: 1s;
 }
 .wrapper div:nth-of-type(3) {
   color: blueviolet;
-  animation-delay: 2s;
+  animation-delay: 1.5s;
 }
 .wrapper div:nth-child(4) {
   color: brown;
-  animation-delay: 2.5s;
+  animation-delay: 2s;
 }
 .wrapper div:nth-of-type(5) {
-  animation-delay: 3s;
+  animation-delay: 2.5s;
 }
 .wrapper div:nth-last-of-type(2) + div {
-  animation-delay: 3.5s;
+  animation-delay: 3s;
   color: aqua;
+}
+
+div.square {
+  position: relative;
+  top: 10vh;
+  left: 0vw;
+  width: 200px;
+  height: 200px;
+  background-color: black;
+  animation-delay: 0;
+  animation-name: transformacion;
 }
 
 @keyframes colorChange {
   0% {
-    color: red;
+    background-color: red;
+    color: white;
   }
   20% {
-    color: orange;
+    background-color: orange;
   }
   40% {
-    color: yellow;
+    background-color: yellow;
   }
   60% {
-    color: green;
+    background-color: green;
   }
   80% {
-    color: blue;
+    background-color: blue;
   }
   100% {
-    color: violet;
+    background-color: violet;
+  }
+}
+@keyframes transformacion {
+  10% {
+    background-color: rgb(0, 0, 0);
+    left: 0vw;
+    top: 10vh;
+    transform: rotate(0deg);
+  }
+  25% {
+    left: 20vw;
+    top: 10vh;
+  }
+  50% {
+    left: 20vw;
+    top: 20vh;
+  }
+  75% {
+    left: 0vw;
+    top: 20vh;
+  }
+  100% {
+    top: 10vh;
+    left: 0vw;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 250);
+    transform: rotate(360deg);
   }
 }

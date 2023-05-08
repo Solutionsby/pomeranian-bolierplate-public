@@ -9,6 +9,7 @@ export function SelectorAndCascade() {
       <div>Jestem Bardzo unikalnym elementem</div>
       <div style={{ color: 'orange' }}>Jestem Bardzo unikalnym elementem</div>
       <div>Jestem Bardzo unikalnym elementem</div>
+      <div className="square"></div>
     </div>
   );
 }
