@@ -30,13 +30,13 @@ export const Blog = () => {
 
   return (
     <div className="blog">
-      {HeaderContent.map((post) => (
+      {HeaderContent.map(({ title, date, content, signature, position }) => (
         <BlogPost
-          title={post.title}
-          date={post.date}
-          content={post.content}
-          signature={post.signature}
-          position={post.position}
+          title={title}
+          date={date}
+          content={content}
+          signature={signature}
+          position={position}
         />
       ))}
     </div>
