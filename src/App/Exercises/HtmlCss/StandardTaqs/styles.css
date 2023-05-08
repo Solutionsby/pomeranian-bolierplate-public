@@ -1,0 +1,40 @@
+.h1-title {
+  font-size: 2em;
+}
+.span-small {
+  font-size: small;
+}
+.bolder-weight {
+  font-weight: bolder;
+}
+.h3-font-size {
+  font-size: 1.17em;
+}
+.h5-font-size {
+  font-size: 0.83em;
+}
+.sub-vertical {
+  vertical-align: sub;
+}
+.sup-vertical {
+  vertical-align: super;
+}
+.quotes-in-css {
+  quotes: ' ' ' ' ' ';
+}
+.italic-style {
+  font-style: italic;
+}
+.linie-throught {
+  text-decoration: line-through;
+}
+.underlinie {
+  text-decoration: underline;
+}
+.ul-list-in-div div {
+  margin: 1vh 0 0 3vw;
+}
+
+div {
+  margin-bottom: 2vh;
+}
