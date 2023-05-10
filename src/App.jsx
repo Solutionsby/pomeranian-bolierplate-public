@@ -11,6 +11,7 @@ import { Calendar } from './App/Components/Calendar/Calendar';
 import { Setings } from './App/Components/Setings/Setings';
 import { MyCv } from './App/MyCv/MyCv';
 import { Blog } from './App/Blog';
+import { Faq } from './App/Faq/faq';
 
 export function App() {
   return (
@@ -24,6 +25,8 @@ export function App() {
           <Route path="myCv/*" element={<MyCv />} />
           <Route path="calendar/*" element={<Calendar />} />
           <Route path="blog/*" element={<Blog />} />
+          <Route path="faq/*" element={<Faq />} />
+
           <Route path="setings/*" element={<Setings />} />
           <Route path="*" element={<NotFound />} />
         </Route>
