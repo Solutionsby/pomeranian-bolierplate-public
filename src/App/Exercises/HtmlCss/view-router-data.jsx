@@ -9,6 +9,6 @@ export const blockRouterMetaData = [
   blockRouterMetaData121220231,
   blockRouterMetaData5052023,
   blockRouterMetaData8052023,
-  blockRouterMetaData9052023,
+  ...blockRouterMetaData9052023,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);

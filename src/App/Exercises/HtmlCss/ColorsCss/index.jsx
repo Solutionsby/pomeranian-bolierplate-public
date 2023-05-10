@@ -1,5 +1,11 @@
 import './styles.css';
 
 export function ColorsCss() {
-  return <div>Test</div>;
+  return (
+    <div className="wrapperColors">
+      <p>Test</p>
+      <p>Test</p>
+      <p>Test</p>
+    </div>
+  );
 }
