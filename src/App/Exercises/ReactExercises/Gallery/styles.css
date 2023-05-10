@@ -1,0 +1,49 @@
+.slider-photo {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s;
+}
+.slider-wrapper {
+  display: flex;
+  position: relative;
+  height: 50vh;
+  width: 100%;
+}
+.leftArrow,
+.RightArrow {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  font-size: 10vh;
+  color: rgba(255, 255, 255, 0.5);
+  z-index: 3;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.RightArrow {
+  left: 90%;
+}
+
+.leftArrow:hover,
+.RightArrow:hover,
+.dots:hover {
+  color: white;
+}
+.dots-wrapper {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+  z-index: 5;
+  justify-content: center;
+}
+.dots {
+  margin: 0px 5px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+}
