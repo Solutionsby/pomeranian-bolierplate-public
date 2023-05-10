@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './styles.css';
 
 export const ImageSlider = ({ GalleryImg }) => {
@@ -23,24 +23,28 @@ export const ImageSlider = ({ GalleryImg }) => {
   };
   return (
     <div className="slider-wrapper">
-      <div className="leftArrow" onClick={goToPrevious}>
-        ❰
-      </div>
-      <div className="RightArrow" onClick={goToNext}>
-        ❱
-      </div>
-      <div></div>
-      <div className="slider-photo" style={slideStyles}></div>
-      <div className="dots-wrapper">
-        {GalleryImg.map((slide, slideIndex) => (
-          <div
-            className="dots"
-            kay={slideIndex}
-            onClick={() => goToSlide(slideIndex)}
-          >
-            ●
-          </div>
-        ))}
+      <div
+        className="slider-photo"
+        style={slideStyles}
+        title={GalleryImg[currentIndex].title}
+      >
+        <div className="leftArrow" onClick={goToPrevious}>
+          ❰
+        </div>
+        <div className="RightArrow" onClick={goToNext}>
+          ❱
+        </div>
+        <div className="dots-wrapper">
+          {GalleryImg.map((slideIndex) => (
+            <div
+              className="dots"
+              kay={slideIndex}
+              onClick={() => goToSlide(slideIndex)}
+            >
+              ●
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
