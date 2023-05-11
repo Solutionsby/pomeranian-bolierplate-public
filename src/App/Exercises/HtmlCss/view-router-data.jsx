@@ -5,6 +5,7 @@ import { blockRouterMetaData as blockRouterMetaData5052023 } from './SelectorsAn
 import { blockRouterMetaData as blockRouterMetaData8052023 } from './StandardTaqs/router-data';
 import { blockRouterMetaData as blockRouterMetaData9052023 } from './ColorsCss/router-data';
 import { blockRouterMetaData as blockRouterMetaData10052023 } from './CssExercise/router-data';
+import { blockRouterMetaData as blockRouterMetaData210052023 } from './Array/router-data';
 
 export const blockRouterMetaData = [
   blockRouterMetaData121220231,
@@ -12,5 +13,6 @@ export const blockRouterMetaData = [
   blockRouterMetaData8052023,
   ...blockRouterMetaData9052023,
   blockRouterMetaData10052023,
+  blockRouterMetaData210052023,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
