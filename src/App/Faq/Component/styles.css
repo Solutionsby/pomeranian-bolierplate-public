@@ -42,6 +42,6 @@
   font-weight: 400;
   transition: 1.2s;
 }
-.arrow-test {
+.arrow-active {
   transform: rotate(90deg);
 }

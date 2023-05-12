@@ -21,7 +21,7 @@ export const FaqComponent = ({ title, content }) => {
           borderBottom: show ? ' 0 ' : '',
         }}
       >
-        <p className={show ? '' : 'arrow-test'}>❱</p>
+        <p className={show ? '' : 'arrow-active'}>❱</p>
         <p>{title}</p>
       </div>
       <div className="faq-content" style={{ opacity: show ? '0' : '1' }}>
