@@ -1,2 +1,10 @@
-.dashboard {
+div.dashboard-welcome {
+  width: 40%;
+}
+.dashboard-blocks-wraper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5vw;
+  margin-top: 5vh;
+  width: 70%;
 }

@@ -6,7 +6,7 @@ export const HeaderMenu = () => {
       <div className="seting-icon">
         <SettingIcon />
       </div>
-      <div className="user-deta-heder">
+      <div className="user-data-heder">
         <div className="photo-icon"></div>
         <div className="user-name-heder">
           <h2>Paweł</h2>

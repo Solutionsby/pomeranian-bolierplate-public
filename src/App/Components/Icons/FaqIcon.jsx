@@ -1,4 +1,4 @@
-export function FaqIcon() {
+export function FaqIcon(className = 'icon') {
   return (
     <svg
       width="24"
