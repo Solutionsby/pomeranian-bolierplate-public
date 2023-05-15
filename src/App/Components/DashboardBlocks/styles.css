@@ -4,6 +4,10 @@
   grid-template-rows: 5% repeat(4, 20%) 5%;
   row-gap: 2%;
   width: 15vw;
+  min-width: 150px;
+  max-width: 250px;
+  max-height: 300px;
+  min-height: 200px;
   height: 25vh;
   border: 0.66px solid #c8cbd1;
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);

@@ -7,6 +7,7 @@ import { blockRouterMetaData as blockRouterMetaData9052023 } from './ColorsCss/r
 import { blockRouterMetaData as blockRouterMetaData10052023 } from './CssExercise/router-data';
 import { blockRouterMetaData as blockRouterMetaData210052023 } from './Array/router-data';
 import { blockRouterMetaData as blockRouterMetaData11052023 } from './HtmlTebles/router-data';
+import { blockRouterMetaData as blockRouterMetaData15052023 } from '../../Components/CookiBaner/router-data';
 
 export const blockRouterMetaData = [
   blockRouterMetaData121220231,
@@ -17,5 +18,6 @@ export const blockRouterMetaData = [
   ...blockRouterMetaData11052023,
   ...blockRouterMetaData210052023,
   ...blockRouterMetaData11052023,
+  blockRouterMetaData15052023,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
