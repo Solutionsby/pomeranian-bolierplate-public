@@ -1,4 +1,4 @@
-export function PersonalCardIcon({ className = '' }) {
+export function PersonalCardIcon({ className = ' icon cv-icon' }) {
   return (
     <svg
       width="22"

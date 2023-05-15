@@ -1,0 +1,30 @@
+.wrapper-dashboard-data {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100px;
+  right: 2%;
+  width: 25%;
+}
+.wrapper-dashboard-data .photo-icon {
+  height: 10vh;
+  width: 10vh;
+  margin: 2vh 1vw;
+}
+.dashboard-data {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 2vh 2vh;
+  row-gap: 1.5vh;
+}
+.dashboard-name-city h2 {
+  color: #23213d;
+}
+.dashboard-data p {
+  color: #999999;
+}
+
+.dashboard-data p,
+.dashboard-data h2 {
+  margin: 0;
+}
