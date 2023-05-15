@@ -1,0 +1,48 @@
+.cooki-baner-wrapper {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 30%;
+  max-height: 300px;
+  min-height: 200px;
+  z-index: 2;
+  color: white;
+  background-color: #23213d;
+}
+.content-box {
+  margin: 30px 20px;
+}
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+.cooki-baner-wrapper .cookiIcon {
+  height: 8vh;
+  width: 8vh;
+  float: left;
+  margin-right: 20px;
+}
+.cooki-baner-button-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 36px;
+  gap: 16px;
+}
+.cooki-baner-button-wrapper .cooki-banner-buton {
+  background: #fe3756;
+  border-radius: 8px;
+  width: 164px;
+  height: 50px;
+}
+.cooki-baner-button-wrapper button:nth-of-type(2) {
+  background-color: white;
+  color: #fe3756;
+}
+.cooki-hiden {
+  display: none;
+}

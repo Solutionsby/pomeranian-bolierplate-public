@@ -12,6 +12,7 @@ import { Setings } from './App/Components/Setings/Setings';
 import { MyCv } from './App/MyCv/MyCv';
 import { Blog } from './App/Blog';
 import { Faq } from './App/Faq/faq';
+import { CookiBaner } from './App/Components/CookiBaner/CookiBaner';
 
 export function App() {
   return (
@@ -31,6 +32,7 @@ export function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
+      <CookiBaner />
     </BrowserRouter>
   );
 }

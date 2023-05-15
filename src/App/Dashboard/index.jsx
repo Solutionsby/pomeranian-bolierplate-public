@@ -3,6 +3,7 @@ import { OwnerDataList } from '../Components/DataComponents/DataList';
 import './styles.css';
 import { DashboardBlocks } from '../Components/DashboardBlocks/DashBoardBlocks';
 import { DataBlocksTable } from '../Components/DataComponents/DataBloks';
+import { CookiBaner } from '../Components/CookiBaner/CookiBaner';
 export const Dashboard = () => {
   return (
     <div className="dashboard">
