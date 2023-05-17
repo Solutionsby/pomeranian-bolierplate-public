@@ -8,6 +8,7 @@ import { SubRouteExampleMetaData } from './SubRouteExample/router-data';
 import { TwoInputVievRouterMetaData } from './TwoInput/router-data';
 import { welcomeVievRouterMetaData } from './WelcomView/router-data';
 import { GalleryVievRouterMetaData } from './Gallery/router-data';
+import { MaterialUIBasicElementsRouterMetaData } from './MaterialUIBasicElements/router-data';
 
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
@@ -18,5 +19,6 @@ export const blockRouterMetaData = [
   TwoInputVievRouterMetaData,
   RandomNumberVievRouterMetaData,
   GalleryVievRouterMetaData,
+  MaterialUIBasicElementsRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);

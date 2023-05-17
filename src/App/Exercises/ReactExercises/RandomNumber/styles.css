@@ -8,13 +8,13 @@ form {
   width: 200px;
 }
 
-input {
+.wrapper input {
   position: absolute;
   display: flex;
   width: 150px;
   top: 5vh;
 }
-input:nth-of-type(2) {
+.wrapper input:nth-of-type(2) {
   top: 15vh;
 }
 
@@ -33,7 +33,7 @@ div.wrapper p:nth-of-type(3) {
   top: 20vh;
   font-size: 1.5em;
 }
-button {
+.CheckButton button {
   display: flex;
   position: absolute;
   top: 35vh;
