@@ -19,6 +19,6 @@ export const blockRouterMetaData = [
   TwoInputVievRouterMetaData,
   RandomNumberVievRouterMetaData,
   GalleryVievRouterMetaData,
-  MaterialUIBasicElementsRouterMetaData,
+  ...MaterialUIBasicElementsRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
