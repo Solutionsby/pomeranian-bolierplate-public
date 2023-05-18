@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import OutlinedInput from '@mui/material/OutlinedInput';
+
 import './styles.css';
 export const EmptyValuesAndComments = () => {
   // const myText = '  Ala ma kota   ';
@@ -15,7 +17,13 @@ export const EmptyValuesAndComments = () => {
   // console.log(myText.codePointAt(0));
 
   // console.log(myArray.length);
+
   let myNewText = 'ala_ma_kota_a_tomek_ma_psa';
+  const [text, setText] = useState(myNewText);
+  const [pixels, setPixels] = useState('');
+  const [height, setHeight] = useState('');
+  const [width, setWidth] = useState('');
+  const [flag, setFlag] = useState(0);
 
   function myTextReplace() {
     myNewText = myNewText.replaceAll('_', ' ');
@@ -31,11 +39,52 @@ export const EmptyValuesAndComments = () => {
     myTextReplace();
     addChartText();
     firstLetterUpperCase();
+    setText(myNewText);
   }
-  editMyText();
-  // myTextReplace();
-  // addChartText();
-  // firstLetterUpperCase();
 
-  return <div>{myNewText}</div>;
+  function getHeight(event) {
+    setHeight(event.target.value);
+  }
+  function getWidthe(event) {
+    setWidth(event.target.value);
+  }
+  function pixelsCalculate() {
+    setPixels(Number(width) * Number(height));
+    setFlag(0);
+  }
+  function replacePixelsToMegaPixels() {
+    if (flag === 0 && String(pixels).length >= 4) {
+      setPixels(Number(pixels) / 1000);
+      setFlag(1);
+      console.log(flag + ' myFlagOne');
+    } else {
+      console.log('test');
+      console.log(flag + ' myFlag');
+    }
+  }
+
+  return (
+    <div className="values-wrapper">
+      <p className="my-text">{text}</p>
+
+      <button className="change-text-button" onClick={editMyText}>
+        Naciśnij by sformatować tekst
+      </button>
+      <OutlinedInput
+        placeholder="Podaj Wysokość w pixelach"
+        className="input-height"
+        onChange={getHeight}
+      />
+      <OutlinedInput
+        placeholder="Podaj Szerokość  w pixelach"
+        className="input-width"
+        onChange={getWidthe}
+      />
+      <button onClick={pixelsCalculate}>Przyciśnij by obliczyć</button>
+      <button onClick={replacePixelsToMegaPixels}>
+        Zamień Jednostki na megaPixele
+      </button>
+      {pixels}
+    </div>
+  );
 };
