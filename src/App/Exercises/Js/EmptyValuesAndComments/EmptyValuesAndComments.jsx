@@ -54,8 +54,8 @@ export const EmptyValuesAndComments = () => {
     setFlag(0);
   }
   function replacePixelsToMegaPixels() {
-    if (flag === 0 && String(pixels).length >= 4) {
-      setPixels(Number(pixels) / 1000);
+    if (flag === 0 && String(pixels).length >= 6) {
+      setPixels(Number(pixels) / 1000000);
       setFlag(1);
     }
   }
