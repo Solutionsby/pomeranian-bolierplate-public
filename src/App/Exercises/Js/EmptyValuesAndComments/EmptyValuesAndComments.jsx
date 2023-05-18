@@ -24,6 +24,7 @@ export const EmptyValuesAndComments = () => {
   const [height, setHeight] = useState('');
   const [width, setWidth] = useState('');
   const [flag, setFlag] = useState(0);
+  // const [typOf, setTypeOf] = useState('');
 
   function myTextReplace() {
     myNewText = myNewText.replaceAll('_', ' ');
@@ -56,13 +57,8 @@ export const EmptyValuesAndComments = () => {
     if (flag === 0 && String(pixels).length >= 4) {
       setPixels(Number(pixels) / 1000);
       setFlag(1);
-      console.log(flag + ' myFlagOne');
-    } else {
-      console.log('test');
-      console.log(flag + ' myFlag');
     }
   }
-
   return (
     <div className="values-wrapper">
       <p className="my-text">{text}</p>
