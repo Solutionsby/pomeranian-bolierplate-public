@@ -6,5 +6,5 @@ export const blockRouterMetaData = {
   linkLabel: 'Js - Date Time',
   blockNo: 1,
   element: <DateTime />,
-  tags: ['components'],
+  tags: ['timestamp', 'date', 'javascript'],
 };

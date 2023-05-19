@@ -1,7 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './styles.css';
 
 export const DateTime = () => {
-  const [myDate, setMydate] = useState(2);
-  return <div>{myDate}</div>;
+  const [myDate, setMydate] = useState(new Date());
+
+  // useEffect(() => {
+  //   setMydate(new Date().getTime());
+  // }, []);
+  console.log(myDate);
+  return (
+    <div>
+      {myDate.getDay()} - {myDate.getFullYear()}
+    </div>
+  );
 };
