@@ -6,6 +6,8 @@ import { blockRouterMetaData as blockRouterMetaDataJsFunction1 } from './Exercis
 import { blockRouterMetaData as blockRouterMetaDataJsBoolean } from './Boolean/router-data';
 import { blockRouterMetaData as blockRouterMetaDataJsEmpty } from './EmptyValuesAndComments/router-data';
 import { blockRouterMetaData as blockRouterMetaDataJsDateTime } from './DateTime/router-data';
+import { blockRouterMetaData as blockRouterMetaDataJsArray } from './Array/router-data';
+
 
 
 export const blockRouterMetaData = [
@@ -15,5 +17,7 @@ export const blockRouterMetaData = [
   blockRouterMetaDataJsBoolean,
   blockRouterMetaDataJsEmpty,
   blockRouterMetaDataJsDateTime,
+  blockRouterMetaDataJsArray,
+
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
