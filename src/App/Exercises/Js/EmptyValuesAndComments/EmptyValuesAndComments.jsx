@@ -26,21 +26,26 @@ export const EmptyValuesAndComments = () => {
   const [flag, setFlag] = useState(0);
   // const [typOf, setTypeOf] = useState('');
 
-  function myTextReplace() {
-    myNewText = myNewText.replaceAll('_', ' ');
+  function myTextReplace(TextToModify) {
+    TextToModify = TextToModify.replaceAll('_', ' ');
+    return TextToModify;
   }
-  function addChartText() {
-    myNewText = myNewText + '.';
+  function addChartText(TextToModify) {
+    TextToModify = TextToModify + '.';
+    return TextToModify;
   }
-  function firstLetterUpperCase() {
-    myNewText = myNewText.charAt(0).toUpperCase() + myNewText.slice(1);
+  function firstLetterUpperCase(TextToModify) {
+    TextToModify = TextToModify.charAt(0).toUpperCase() + TextToModify.slice(1);
+    return TextToModify;
   }
-
-  function editMyText() {
-    myTextReplace();
-    addChartText();
-    firstLetterUpperCase();
-    setText(myNewText);
+  function editMyText(text) {
+    let firstChange = myTextReplace(text);
+    let secondChange = addChartText(firstChange);
+    let thirdChange = firstLetterUpperCase(secondChange);
+    setText(thirdChange);
+  }
+  function ClickEditMyText() {
+    editMyText(text);
   }
 
   function getHeight(event) {
@@ -63,7 +68,7 @@ export const EmptyValuesAndComments = () => {
     <div className="values-wrapper">
       <p className="my-text">{text}</p>
 
-      <button className="change-text-button" onClick={editMyText}>
+      <button className="change-text-button" onClick={ClickEditMyText}>
         Naciśnij by sformatować tekst
       </button>
       <OutlinedInput
