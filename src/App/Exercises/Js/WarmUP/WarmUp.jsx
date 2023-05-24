@@ -54,8 +54,11 @@ export const WarmUp = () => {
   console.log(SumTheScore());
   return (
     <div>
-      {SumTheScore().map((el) => (
-        <p>{el}</p>
+      {SumTheScore().map((el, index) => (
+        <p>
+          {' '}
+          Imię {names[index]} zdobywa {el} punktów
+        </p>
       ))}
     </div>
   );
