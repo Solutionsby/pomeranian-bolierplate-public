@@ -25,7 +25,6 @@ export const WarmUp = () => {
   ];
 
   const names = ['Pawel', 'Michał', 'Grzegoż', 'Łukasz'];
-  const onlyScoreLetter = [];
 
   function ScoresFromLetters(names, scores, score) {
     let toUpperCase = names.map((name) => name.toUpperCase());
@@ -55,7 +54,9 @@ export const WarmUp = () => {
   console.log(SumTheScore());
   return (
     <div>
-      <h1></h1>
+      {SumTheScore().map((el) => (
+        <p>{el}</p>
+      ))}
     </div>
   );
 };
