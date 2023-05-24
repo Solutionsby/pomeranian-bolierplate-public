@@ -1,0 +1,6 @@
+.hit-a-mole-button {
+  display: flex;
+  flex-direction: row;
+  height: 5vh;
+  width: 10vh;
+}
