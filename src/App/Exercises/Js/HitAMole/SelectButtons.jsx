@@ -24,7 +24,7 @@ export const SelectButtons = ({ options }) => {
     );
   };
   return (
-    <div>
+    <div className="button-wrapper">
       {newOptions.map(({ label, value, isActive }) => (
         <HitAmoleButton Onclick={() => handelClick(value)} isActive={isActive}>
           {label}
