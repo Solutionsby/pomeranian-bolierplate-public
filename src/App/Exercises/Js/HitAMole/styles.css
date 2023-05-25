@@ -4,3 +4,7 @@
   height: 5vh;
   width: 10vh;
 }
+
+.button-active {
+  background-color: black;
+}

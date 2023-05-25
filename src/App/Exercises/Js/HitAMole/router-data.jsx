@@ -1,4 +1,4 @@
-import { HitAMole } from './EmptyComponentWithRouting';
+import { HitAMole } from './HitAMole';
 
 export const blockRouterMetaData = {
   path: 'hit-a-mole',
