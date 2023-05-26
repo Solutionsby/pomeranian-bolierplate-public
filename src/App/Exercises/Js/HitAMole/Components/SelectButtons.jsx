@@ -2,14 +2,10 @@ import { useState } from 'react';
 import { HitAmoleButton } from './HitAMoleButton';
 
 export const SelectButtons = ({ options }) => {
-  const SecondOption = options.find((obj) => {
-    return obj.defaultValue;
-  });
-
   const initialOptions = options.map((option) => {
     return {
       ...option,
-      isActive: false,
+      isActive: option.defaultValue === true,
     };
   });
 

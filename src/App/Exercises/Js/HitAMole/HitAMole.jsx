@@ -1,7 +1,11 @@
 import './styles.css';
 import { SelectButtons } from './Components/SelectButtons';
+import { PlayGraund } from './Components/PlayGraund/PlayGraund';
+import { useState } from 'react';
 
 export const HitAMole = () => {
+  const [isGameStgarted, setIsGameStarted] = useState(false);
+  console.log(isGameStgarted);
   return (
     <div className="hit-a-mole-wrapper">
       <h4>Hit a Mole</h4>
@@ -39,15 +43,26 @@ export const HitAMole = () => {
       </div>
       <div className="stings-conteiner">
         <div className="label">Rozpoczęcie gry</div>
-        <SelectButtons
-          options={[
-            {
-              label: 'Start',
-              value: 1,
-            },
-          ]}
-        />
+        {!isGameStgarted && (
+          <button
+            onClick={() => {
+              setIsGameStarted(true);
+            }}
+          >
+            Start
+          </button>
+        )}
+        {isGameStgarted && (
+          <button
+            onClick={() => {
+              setIsGameStarted(false);
+            }}
+          >
+            Stop
+          </button>
+        )}
       </div>
+      {isGameStgarted && <PlayGraund />}
     </div>
   );
 };
