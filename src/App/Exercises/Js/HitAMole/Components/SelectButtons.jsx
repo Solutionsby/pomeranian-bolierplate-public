@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { HitAmoleButton } from './HitAMoleButton';
 
 export const SelectButtons = ({ options }) => {
+  const SecondOption = options.find((obj) => {
+    return obj.defaultValue;
+  });
+
   const initialOptions = options.map((option) => {
     return {
       ...option,
@@ -10,9 +14,6 @@ export const SelectButtons = ({ options }) => {
   });
 
   const [newOptions, setNewOptions] = useState(initialOptions);
-
-  console.log(newOptions);
-
   const handelClick = (value) => {
     setNewOptions(
       newOptions.map((option) => {

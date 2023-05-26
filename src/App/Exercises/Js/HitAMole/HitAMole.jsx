@@ -1,5 +1,5 @@
 import './styles.css';
-import { SelectButtons } from './SelectButtons';
+import { SelectButtons } from './Components/SelectButtons';
 
 export const HitAMole = () => {
   return (
@@ -16,9 +16,10 @@ export const HitAMole = () => {
             {
               label: '1 kret',
               value: 1,
+              defaultValue: false,
             },
-            { label: '2 krety', value: 2 },
-            { label: '3 krety', value: 3 },
+            { label: '2 krety', value: 2, defaultValue: true },
+            { label: '3 krety', value: 3, defaultValue: false },
           ]}
         />
       </div>
@@ -29,9 +30,21 @@ export const HitAMole = () => {
             {
               label: '1 minuta',
               value: 1,
+              defaultValue: true,
             },
-            { label: '2 minuty', value: 2 },
-            { label: '3 minuty', value: 3 },
+            { label: '2 minuty', value: 2, defaultValue: false },
+            { label: '3 minuty', value: 3, defaultValue: false },
+          ]}
+        />
+      </div>
+      <div className="stings-conteiner">
+        <div className="label">Rozpoczęcie gry</div>
+        <SelectButtons
+          options={[
+            {
+              label: 'Start',
+              value: 1,
+            },
           ]}
         />
       </div>

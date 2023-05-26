@@ -1,4 +1,4 @@
-import './styles.css';
+import '../styles.css';
 import Button from '@mui/material/Button';
 
 export const HitAmoleButton = ({ label, children, isActive, Onclick }) => {
