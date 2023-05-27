@@ -49,7 +49,12 @@ const fields = [
 ];
 
 export const PlayGraund = () => {
-  const randomIndex = getRandomInt(10);
+  function HowlongisArray(array) {
+    return array.length;
+  }
+  const numberOffields = HowlongisArray(fields);
+
+  const randomIndex = getRandomInt(numberOffields);
   const FieldsWithRandomIndex = fields.map((field) => {
     return {
       ...field,
