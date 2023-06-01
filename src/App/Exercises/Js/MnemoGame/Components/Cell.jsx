@@ -7,7 +7,7 @@ export const Cell = ({ value, clicked }) => {
       className={`Y ${clicked ? 'clicked' : ''}`}
       // onClick={() => handleClick(uniqueID)}
     >
-      {/* {uniqueID} */}
+      {value}
     </div>
   );
 };

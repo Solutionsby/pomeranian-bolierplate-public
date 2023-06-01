@@ -4,12 +4,22 @@ import { MemoBoard } from './Components/MemoBoard';
 import './styles.css';
 import { Difficulty } from './Components/Difficulty';
 import { Timer } from './Components/Timmer';
+import { shuffleCards } from './Components/NameLottery';
 
 import db from './db.json';
 
 export const MnemoGame = () => {
+  const array = ['Kasia', 'Basia', 'Leosia', 'Monika'];
+
+  // console.log('Moja tablica przed: ' + array);
+  // console.log(' Moja Tablica po: ' + shuffleCards(array));
   const [difficulty, setDifficulty] = useState(2);
 
+  const arrayWithNames = new Array((difficulty * difficulty) / 2);
+
+  console.log(arrayWithNames);
+
+  console.log(arrayWithNames);
   const [board, setBoard] = useState(
     new Array(2).fill(
       new Array(2).fill({
