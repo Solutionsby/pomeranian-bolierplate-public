@@ -15,11 +15,18 @@ export const MnemoGame = () => {
   // console.log(' Moja Tablica po: ' + shuffleCards(array));
   const [difficulty, setDifficulty] = useState(2);
 
-  const arrayWithNames = new Array((difficulty * difficulty) / 2);
+  function CutANames(db) {
+    const randomIndexStart = rand(0, db.length);
+    console.log(randomIndexStart);
+    const ArrayNamesToPlay = db.slice(
+      randomIndexStart,
+      randomIndexStart + (difficulty * difficulty) / 2
+    );
+    return ArrayNamesToPlay;
+  }
 
-  console.log(arrayWithNames);
+  console.log(CutANames(db.names));
 
-  console.log(arrayWithNames);
   const [board, setBoard] = useState(
     new Array(2).fill(
       new Array(2).fill({
