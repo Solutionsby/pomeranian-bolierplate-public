@@ -10,6 +10,7 @@ import {
   checkIsFour,
   checkIsSix,
 } from './Components/BoardCheckers/BoardCheckers';
+import { rand, CutANames } from './Components/ArrayActions/ArrayActions';
 
 export const NewMemoGame = () => {
   const [difficulty, setDifficulty] = useState(2);
@@ -19,17 +20,21 @@ export const NewMemoGame = () => {
   const [showModal, setShowModal] = useState(false);
   const [moves, setMoves] = useState(0);
   const timeout = useRef(null);
+
   const disable = () => {
     setShouldDisableAllCards(true);
   };
   const enable = () => {
     setShouldDisableAllCards(false);
   };
+  const NewNameArray = CutANames(db.names, difficulty);
+
   const checkCompletion = () => {
     if (Object.keys(clearedCards).length === NewNameArray.length) {
       setShowModal(true);
     }
   };
+
   const evaluate = () => {
     const [first, second] = openCards;
     enable();
@@ -42,11 +47,7 @@ export const NewMemoGame = () => {
       setOpenCards([]);
     }, 500);
   };
-  const rand = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
+
   function shuffleCards(array) {
     const length = array.length;
     for (let i = length; i > 0; i--) {
@@ -58,23 +59,12 @@ export const NewMemoGame = () => {
     }
     return array;
   }
-
-  function CutANames(db) {
-    const randomIndexStart = rand(0, db.length);
-    const ArrayNamesToPlay = db.slice(
-      randomIndexStart,
-      randomIndexStart + (difficulty * difficulty) / 2
-    );
-    return ArrayNamesToPlay;
-  }
-
-  const NewNameArray = CutANames(db.names);
-
   const [card, setCards] = useState(
     shuffleCards.bind(null, NewNameArray.concat(NewNameArray))
   );
   useEffect(() => {
-    const NewNameArray = CutANames(db.names);
+    const NewNameArray = CutANames(db.names, difficulty);
+
     setCards(shuffleCards.bind(null, NewNameArray.concat(NewNameArray)));
   }, [difficulty]);
 
