@@ -1,0 +1,17 @@
+.user-list-main-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+div.user-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 15px;
+}
+.user-list-wrapper {
+  display: flex;
+  height: 20vh;
+  width: 45%;
+  border: 1px solid black;
+}

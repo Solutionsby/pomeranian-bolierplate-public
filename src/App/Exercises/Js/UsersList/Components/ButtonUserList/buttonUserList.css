@@ -1,0 +1,9 @@
+button.button-user-list {
+  height: 8vh;
+  width: 50%;
+  border-radius: 10px;
+  background-color: red;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: white;
+}
