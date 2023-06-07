@@ -4,10 +4,19 @@ import { UsersListComponent } from './Components/UsersListComponents/UserListCom
 import { useState } from 'react';
 
 export const UsersList = () => {
-  const [inputValue, setInputValue] = useState('inicialState');
+  const [inputValue, setInputValue] = useState('');
+  const [user, setUser] = useState([]);
 
   const sendFormValue = () => {
+    setUser((prevState) => [
+      ...prevState,
+      { id: user.length + 1, name: inputValue },
+    ]);
     setInputValue('');
+  };
+
+  const removeValue = (id) => {
+    setUser((currentState) => currentState.filter((item) => item.id !== id));
   };
 
   return (
@@ -16,12 +25,18 @@ export const UsersList = () => {
         <input
           type="text"
           placeholder="Podaj nick"
+          value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
-        <ButtonUserList onClick={console.log('test')}>Dodaj</ButtonUserList>
+        <ButtonUserList onClick={sendFormValue} disabled={!inputValue.length}>
+          Dodaj
+        </ButtonUserList>
       </div>
       <div className="user-list-wrapper">
-        <UsersListComponent></UsersListComponent>
+        <UsersListComponent
+          user={user}
+          onClick={removeValue}
+        ></UsersListComponent>
       </div>
     </div>
   );
