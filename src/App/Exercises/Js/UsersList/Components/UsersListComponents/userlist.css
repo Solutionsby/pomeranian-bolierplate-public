@@ -1,7 +1,7 @@
 li.li-user-list-list {
   display: flex;
   justify-content: space-between;
-  min-width: 5vw;
+  min-width: 10vw;
   gap: 5vw;
 }
 .user-list-component-button {

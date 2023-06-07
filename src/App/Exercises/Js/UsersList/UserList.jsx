@@ -1,11 +1,13 @@
 import './styles.css';
 import { ButtonUserList } from './Components/ButtonUserList/ButtonUserList';
 import { UsersListComponent } from './Components/UsersListComponents/UserListComponent';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const UsersList = () => {
   const [inputValue, setInputValue] = useState('');
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(
+    JSON.parse(window.localStorage.getItem('user')) || []
+  );
 
   const sendFormValue = () => {
     setUser((prevState) => [
