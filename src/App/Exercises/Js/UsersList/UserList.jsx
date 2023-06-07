@@ -18,7 +18,7 @@ export const UsersList = () => {
           placeholder="Podaj nick"
           onChange={(e) => setInputValue(e.target.value)}
         />
-        <ButtonUserList>Dodaj</ButtonUserList>
+        <ButtonUserList onClick={sendFormValue}>Dodaj</ButtonUserList>
       </div>
       <div className="user-list-wrapper">
         <UsersListComponent></UsersListComponent>

@@ -1,6 +1,9 @@
-import { Children } from 'react';
 import './buttonUserList.css';
 
-export const ButtonUserList = ({ children }) => {
-  return <button className="button-user-list">{children}</button>;
+export const ButtonUserList = ({ children, onClick }) => {
+  return (
+    <button className="button-user-list" onClick={onClick}>
+      {children}
+    </button>
+  );
 };
