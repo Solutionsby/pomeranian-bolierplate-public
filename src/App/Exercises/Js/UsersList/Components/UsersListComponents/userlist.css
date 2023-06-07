@@ -1,0 +1,12 @@
+li.li-user-list-list {
+  display: flex;
+  justify-content: space-between;
+  min-width: 5vw;
+  gap: 5vw;
+}
+.user-list-component-button {
+  height: 3h;
+  width: 3vh;
+  background-color: red;
+  color: white;
+}

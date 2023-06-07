@@ -11,7 +11,7 @@ div.user-input-wrapper {
 }
 .user-list-wrapper {
   display: flex;
-  height: 20vh;
+  min-height: 20vh;
   width: 45%;
   border: 1px solid black;
 }

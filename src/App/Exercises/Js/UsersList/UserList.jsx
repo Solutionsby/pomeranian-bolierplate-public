@@ -14,6 +14,12 @@ export const UsersList = () => {
     ]);
     setInputValue('');
   };
+  const sendValuesToStorage = () => {
+    window.localStorage.setItem('user', JSON.stringify(user));
+  };
+  const clearValuesFromStorage = () => {
+    window.localStorage.removeItem('user');
+  };
 
   const removeValue = (id) => {
     setUser((currentState) => currentState.filter((item) => item.id !== id));
@@ -30,6 +36,10 @@ export const UsersList = () => {
         />
         <ButtonUserList onClick={sendFormValue} disabled={!inputValue.length}>
           Dodaj
+        </ButtonUserList>
+        <ButtonUserList onClick={sendValuesToStorage}>Wyslij</ButtonUserList>
+        <ButtonUserList onClick={clearValuesFromStorage}>
+          Usuń Dane Z Przegladarki
         </ButtonUserList>
       </div>
       <div className="user-list-wrapper">
