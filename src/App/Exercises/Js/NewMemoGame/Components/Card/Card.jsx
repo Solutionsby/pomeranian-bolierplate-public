@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
 import classnames from 'classnames';
-import db from '../../list/db.json';
 import './styles.css';
+import '../IMG/cardBackFace.jpg';
 
 export const Card = ({
   onClick,
@@ -25,7 +24,6 @@ export const Card = ({
       onClick={handleClick}
     >
       <div className="card-face card-font-face">{card}</div>
-      <div className="card-face card-back-face"></div>
     </div>
   );
 };

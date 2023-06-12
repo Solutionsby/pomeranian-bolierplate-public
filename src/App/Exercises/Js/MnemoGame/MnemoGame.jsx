@@ -9,8 +9,6 @@ import { shuffleCards } from './Components/NameLottery';
 import db from './db.json';
 
 export const MnemoGame = () => {
-  const array = ['Kasia', 'Basia', 'Leosia', 'Monika'];
-
   // console.log('Moja tablica przed: ' + array);
   // console.log(' Moja Tablica po: ' + shuffleCards(array));
   const [difficulty, setDifficulty] = useState(2);

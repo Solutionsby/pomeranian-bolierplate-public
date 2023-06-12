@@ -27,6 +27,12 @@
   width: 100%;
   height: 100%;
 }
+.card-font-face {
+  background-image: url('../../../../../../../public/Image/cardBackFace.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 .card.is-flipped {
   transform: rotateY(180deg);
