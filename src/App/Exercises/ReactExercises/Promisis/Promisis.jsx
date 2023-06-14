@@ -3,8 +3,8 @@ import './styles.css';
 import { compannys, employes } from './db';
 
 export const Promisis = () => {
-  const [companyData, setData] = useState([compannys]);
-  const [userData, setUserData] = useState([employes]);
+  const [companyData, setData] = useState([]);
+  const [userData, setUserData] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -34,8 +34,27 @@ export const Promisis = () => {
     }
     const compannys = getData();
     const employes = getDatFaster();
-    Promise.all([compannys, employes]).then((values) => console.log(values));
   }, []);
 
-  return;
+  return (
+    <>
+      <h5>Companies</h5>
+      {compannys.map((company) => (
+        <div key={company.companyId} title={company.companyId}>
+          {company.companyname}
+        </div>
+      ))}
+      <hr />
+      <h5>Employees</h5>
+      {employes.map((employee) => (
+        <div key={employee.userId} title={employee.id}>
+          <b>Username: {employee.username}</b>
+          <p>
+            {employee.firstName} {employee.lastName}, DoB:{' '}
+            {`${employee.birthdate.getDay()}.${employee.birthdate.getMonth()}.${employee.birthdate.getFullYear()}`}
+          </p>
+        </div>
+      ))}
+    </>
+  );
 };
