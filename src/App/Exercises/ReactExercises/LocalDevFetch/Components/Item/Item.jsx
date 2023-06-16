@@ -1,4 +1,5 @@
 import './item.css';
+import { requestHendler } from '../../requestHandler';
 const parsDate = (date) => {
   const dateObj = new Date(date);
   return dateObj.toDateString();
@@ -15,31 +16,15 @@ export const ToDoItem = ({
   loadTheData,
 }) => {
   const deleteItem = async (id) => {
-    const respons = await fetch(`http://localhost:3333/api/todo/${id}`, {
-      method: 'DELETE',
-    });
-    if (respons.status === 200) {
-      loadTheData();
-    }
-    if (respons.status !== 200) {
-      setError('smething Go Wrong');
-    }
+    requestHendler('DELETE', id)
+      .then((jesonResponse) => loadTheData(jesonResponse))
+      .catch((errorMesage) => setError(errorMesage));
   };
 
   const updateTheMark = async (id) => {
-    console.log('test' + id);
-    const respons = await fetch(
-      `http://localhost:3333/api/todo/${id}/markAsDone`,
-      {
-        method: 'PUT',
-      }
-    );
-    if (respons.status === 200) {
-      loadTheData();
-    }
-    if (respons.status !== 200) {
-      setError('smething Go Wrong');
-    }
+    requestHendler('PUT', id, true)
+      .then((jesonResponse) => loadTheData(jesonResponse))
+      .catch((errorMesage) => setError(errorMesage));
   };
   //   Wystylowac to
   return (

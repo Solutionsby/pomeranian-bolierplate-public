@@ -1,30 +1,26 @@
 import { useEffect, useState } from 'react';
 import './styles.css';
 import { ToDoItem } from './Components/Item/Item';
+import { requestHendler } from './requestHandler';
 
 export const LocalDevAndFetch = () => {
   const [array, setArray] = useState([]);
   const [isLoading, SetLoading] = useState(false);
   const [error, setError] = useState();
 
+  //  Przerzucic do komponentu.
+
   const loadTheData = async () => {
     SetLoading(true);
-    const respons = await fetch('http://localhost:3333/api/todo');
-    const jesonResponse = await respons.json();
+    requestHendler('GET')
+      .then((jesonResponse) => setArray(jesonResponse))
+      .catch((errorMesage) => setError(errorMesage));
 
-    if (respons.status === 200) {
-      setArray(jesonResponse);
-    }
-    // Heding satus - what error we had
-    if (respons.status !== 200 && jesonResponse.message) {
-      setError('ups Something go wrong');
-    }
     SetLoading(false);
   };
   useEffect(() => {
     loadTheData();
   }, []);
-
   return (
     <div className="api-respons">
       {error && (
