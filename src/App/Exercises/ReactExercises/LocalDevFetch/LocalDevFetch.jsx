@@ -7,15 +7,7 @@ export const LocalDevAndFetch = () => {
   const [isLoading, SetLoading] = useState(false);
   const [error, setError] = useState();
 
-  //  Nie wiem czy działa , id przekazuje prawidlowo -  baza danych wywala sie  - TypeError: Cannot read properties of undefined (reading 'findIndex') linia 146
-  const deleteItem = (id) => {
-    console.log(id);
-    fetch(`http://localhost:3333/api/todo/${id}`, {
-      method: 'DELETE',
-    });
-  };
-
-  const componentDidMount = async () => {
+  const loadTheData = async () => {
     SetLoading(true);
     const respons = await fetch('http://localhost:3333/api/todo');
     const jesonResponse = await respons.json();
@@ -30,8 +22,9 @@ export const LocalDevAndFetch = () => {
     SetLoading(false);
   };
   useEffect(() => {
-    componentDidMount();
+    loadTheData();
   }, []);
+
   return (
     <div className="api-respons">
       {error && (
@@ -42,7 +35,7 @@ export const LocalDevAndFetch = () => {
             className="restart-buttton-todolist"
             onClick={() => {
               setError(undefined);
-              componentDidMount();
+              loadTheData();
             }}
           >
             Restart - application
@@ -63,8 +56,8 @@ export const LocalDevAndFetch = () => {
               author={author}
               isDone={isDone}
               note={note}
-              doneDate={doneDate}
-              test={deleteItem}
+              loadTheData={loadTheData}
+              setError={setError}
             />
           )
         )}

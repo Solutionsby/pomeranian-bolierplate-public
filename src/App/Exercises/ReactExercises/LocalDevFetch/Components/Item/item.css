@@ -25,6 +25,6 @@
   font-size: 36px;
   color: green;
 }
-.api-respons ul li.isDone p.redOne {
-  color: red;
+.api-respons ul li.isDone p.grayOne {
+  color: gray;
 }
