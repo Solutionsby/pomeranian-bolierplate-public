@@ -1,5 +1,5 @@
 import './item.css';
-import { requestHendler } from '../../requestHandler';
+import { requestHendler } from '../../HelpFunctions';
 const parsDate = (date) => {
   const dateObj = new Date(date);
   return dateObj.toDateString();

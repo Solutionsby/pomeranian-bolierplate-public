@@ -17,9 +17,11 @@ export async function requestHendler(method, id, extraParam) {
     if (respons.status === 200) {
       resolve(jesonResponse);
     }
-    // Heding satus - what error we had
-    if (respons.status !== 200 && jesonResponse.message) {
-      reject('ups Something go wrong');
+    if (respons.status !== 200) {
+      reject(`- ${respons.status}`);
     }
   });
 }
+export const setterFunction = (value, setter) => {
+  setter(value);
+};
