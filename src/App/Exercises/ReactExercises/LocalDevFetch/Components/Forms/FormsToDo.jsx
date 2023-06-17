@@ -3,10 +3,12 @@ import './formsToDo.css';
 import { setterFunction } from '../../HelpFunctions';
 import { ButtonsToDoList } from '../Buttons/ButtonsToDoList';
 
-export const FormsToDo = ({ setIsActiveForms }) => {
+export const FormsToDo = ({ setIsActiveForms, loadTheData }) => {
   const [dataTitle, SetDataTitle] = useState('');
   const [dataAuthor, SetDataAuthor] = useState('');
   const [dataContext, SetDataContex] = useState('');
+  const [answer, setAsnwer] = useState('');
+  const [erroAnswer, setErrorAnswer] = useState('');
 
   const sendDataToApi = async (title, author, context) => {
     console.log(' Chyba poszlo ');
@@ -22,21 +24,22 @@ export const FormsToDo = ({ setIsActiveForms }) => {
         author: author,
       }),
     });
+
+    if (respons.status === 200) {
+      setAsnwer(' Ok Udało się dodać zadanie');
+    }
+    if (respons.status !== 200) {
+      setErrorAnswer('Ups cos poszlo nie tak');
+    }
     const content = await respons.json();
     console.log(content);
   };
-  console.log(dataTitle);
-  //  New async Function to put data on - serwer
-  //   const deleteItem = async (id) => {
-  //     requestHendler('DELETE', id)
-  //       .then((jesonResponse) => loadTheData(jesonResponse))
-  //       .catch((errorMesage) => setError(errorMesage));
-  //   };
   return (
     <div className="forms-to-do-list-wrepper">
       <div className="forms-title">
         <h2>Tytul</h2>
         <input
+          className="to-do-list-input"
           type="text"
           placeholder="title"
           onChange={(e) => setterFunction(e.target.value, SetDataTitle)}
@@ -45,6 +48,7 @@ export const FormsToDo = ({ setIsActiveForms }) => {
       <div className="forms-author">
         <h2>Autor</h2>
         <input
+          className="to-do-list-input"
           type="text"
           placeholder="note"
           onChange={(e) => setterFunction(e.target.value, SetDataAuthor)}
@@ -53,19 +57,30 @@ export const FormsToDo = ({ setIsActiveForms }) => {
       <div className="forms-contents">
         <h2>Treść</h2>
         <input
+          className="to-do-list-input"
           type="text"
           placeholder="author"
           onChange={(e) => setterFunction(e.target.value, SetDataContex)}
         />
       </div>
-      <ButtonsToDoList
-        OnClick={() => sendDataToApi(dataTitle, dataAuthor, dataContext)}
-      >
-        Dodaj
-      </ButtonsToDoList>
-      <ButtonsToDoList OnClick={() => setterFunction(false, setIsActiveForms)}>
-        Cofnij
-      </ButtonsToDoList>
+      <div className="forms-action-button-wrapper">
+        <ButtonsToDoList
+          className={'button-to-do forms-forword-button'}
+          onClick={() => {
+            setterFunction(false, setIsActiveForms);
+            loadTheData();
+          }}
+        >
+          Cofnij
+        </ButtonsToDoList>
+        <ButtonsToDoList
+          className={'button-to-do forms-add-button'}
+          onClick={() => sendDataToApi(dataTitle, dataAuthor, dataContext)}
+        >
+          Dodaj
+        </ButtonsToDoList>
+      </div>
+      <div className="answer-wrapper"></div>
     </div>
   );
 };

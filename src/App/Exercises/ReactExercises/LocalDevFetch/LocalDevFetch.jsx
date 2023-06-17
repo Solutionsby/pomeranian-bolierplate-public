@@ -4,6 +4,7 @@ import { ToDoItem } from './Components/Item/Item';
 import { requestHendler } from './HelpFunctions';
 import { FormsToDo } from './Components/Forms/FormsToDo';
 import { setterFunction } from './HelpFunctions';
+import { ButtonsToDoList } from './Components/Buttons/ButtonsToDoList';
 
 export const LocalDevAndFetch = () => {
   const [array, setArray] = useState([]);
@@ -30,27 +31,28 @@ export const LocalDevAndFetch = () => {
           <h1>Hey, you have Error !</h1>
           <h2>error code{error}</h2>
           <h2>Try to restert application </h2>
-          <button
-            className="restart-buttton-todolist"
+
+          <ButtonsToDoList
+            className={'button-to-do'}
             onClick={() => {
               setError(undefined);
               loadTheData();
             }}
           >
             Restart - application
-          </button>
+          </ButtonsToDoList>
         </div>
       )}
 
       {isLoading && <p>Loading...</p>}
       {!error && !isActiveForms && array.length > 0 && (
         <div className="div-add-button-wrapper">
-          <button
-            className="add-button up"
+          <ButtonsToDoList
+            className={'button-to-do'}
             onClick={() => setterFunction(true, setIsActiveForms)}
           >
             +
-          </button>
+          </ButtonsToDoList>
         </div>
       )}
 
@@ -74,27 +76,32 @@ export const LocalDevAndFetch = () => {
 
       {!error && !isActiveForms && array.length > 0 && (
         <div className="div-add-button-wrapper">
-          <button
-            className="add-button bottom"
+          <ButtonsToDoList
+            className={'button-to-do'}
             onClick={() => setterFunction(true, setIsActiveForms)}
           >
             Dodaj Zadanie
-          </button>
+          </ButtonsToDoList>
         </div>
       )}
       {!isLoading && !error && !isActiveForms && array.length === 0 && (
         <div className="to-do-list-done">
           <h2>Brawo, Nie masz Aktualnie żadnych zadań do zrealizowania </h2>
-          <button
-            className="add-button bottom"
+          <ButtonsToDoList
+            className={'button-to-do'}
             onClick={() => setterFunction(true, setIsActiveForms)}
           >
             Dodaj Zadanie
-          </button>
+          </ButtonsToDoList>
         </div>
       )}
 
-      {isActiveForms && <FormsToDo setIsActiveForms={setIsActiveForms} />}
+      {isActiveForms && (
+        <FormsToDo
+          setIsActiveForms={setIsActiveForms}
+          loadTheData={loadTheData}
+        />
+      )}
     </div>
   );
 };

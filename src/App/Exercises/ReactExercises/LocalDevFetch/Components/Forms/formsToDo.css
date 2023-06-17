@@ -1,0 +1,9 @@
+.forms-action-button-wrapper {
+  display: flex;
+  margin-top: 20px;
+  width: 60%;
+  justify-content: right;
+}
+.to-do-list-input {
+  width: 60%;
+}

@@ -1,9 +1,9 @@
 import './buttonsToDoList.css';
 
-export const ButtonsToDoList = ({ children, OnClick }) => {
+export const ButtonsToDoList = ({ children, onClick, className }) => {
   return (
-    <div>
-      <button onClick={OnClick}>{children}</button>
-    </div>
+    <button className={className} onClick={onClick}>
+      {children}
+    </button>
   );
 };
