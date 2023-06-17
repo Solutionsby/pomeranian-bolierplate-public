@@ -28,3 +28,9 @@
 .api-respons ul li.isDone p.grayOne {
   color: gray;
 }
+.left-item-side {
+  display: flex;
+  margin-top: 20px;
+  justify-content: right;
+  width: 100%;
+}

@@ -9,6 +9,7 @@ export const FormsToDo = ({ setIsActiveForms, loadTheData }) => {
   const [dataContext, SetDataContex] = useState('');
   const [answer, setAsnwer] = useState('');
   const [erroAnswer, setErrorAnswer] = useState('');
+  const [isError, setIsError] = useState(false);
 
   const sendDataToApi = async (title, author, context) => {
     console.log(' Chyba poszlo ');
@@ -29,37 +30,36 @@ export const FormsToDo = ({ setIsActiveForms, loadTheData }) => {
       setAsnwer(' Ok Udało się dodać zadanie');
     }
     if (respons.status !== 200) {
-      setErrorAnswer('Ups cos poszlo nie tak');
+      setIsError(true);
+      setErrorAnswer('Wystapił błąd, dodaj ponownie ');
     }
-    const content = await respons.json();
-    console.log(content);
   };
   return (
     <div className="forms-to-do-list-wrepper">
-      <div className="forms-title">
+      <div className="forms-title div-input-forms-wrapper">
         <h2>Tytul</h2>
         <input
-          className="to-do-list-input"
+          className="to-do-list-input "
           type="text"
-          placeholder="title"
+          placeholder="Title"
           onChange={(e) => setterFunction(e.target.value, SetDataTitle)}
         />
       </div>
-      <div className="forms-author">
+      <div className="forms-author div-input-forms-wrapper">
         <h2>Autor</h2>
         <input
-          className="to-do-list-input"
+          className="to-do-list-input "
           type="text"
-          placeholder="note"
+          placeholder="Note"
           onChange={(e) => setterFunction(e.target.value, SetDataAuthor)}
         />
       </div>
-      <div className="forms-contents">
+      <div className="forms-contents div-input-forms-wrapper">
         <h2>Treść</h2>
         <input
-          className="to-do-list-input"
+          className="to-do-list-input forms-contents-input"
           type="text"
-          placeholder="author"
+          placeholder="Author"
           onChange={(e) => setterFunction(e.target.value, SetDataContex)}
         />
       </div>
@@ -69,18 +69,26 @@ export const FormsToDo = ({ setIsActiveForms, loadTheData }) => {
           onClick={() => {
             setterFunction(false, setIsActiveForms);
             loadTheData();
+            setAsnwer('');
+            setIsError(false);
           }}
         >
           Cofnij
         </ButtonsToDoList>
         <ButtonsToDoList
           className={'button-to-do forms-add-button'}
-          onClick={() => sendDataToApi(dataTitle, dataAuthor, dataContext)}
+          onClick={() => {
+            sendDataToApi(dataTitle, dataAuthor, dataContext);
+            setIsError(false);
+          }}
         >
           Dodaj
         </ButtonsToDoList>
       </div>
-      <div className="answer-wrapper"></div>
+      <div className="answer-wrapper">
+        <p>{!isError && answer}</p>
+        <p>{isError && erroAnswer}</p>
+      </div>
     </div>
   );
 };

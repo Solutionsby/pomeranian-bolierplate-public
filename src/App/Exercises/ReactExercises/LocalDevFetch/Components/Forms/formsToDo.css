@@ -5,5 +5,22 @@
   justify-content: right;
 }
 .to-do-list-input {
+  border: solid 0.2px grey;
   width: 60%;
+}
+.div-input-forms-wrapper {
+  margin: 1% 0;
+}
+.forms-contents-input {
+  display: flex;
+  flex-wrap: wrap;
+}
+.answer-wrapper {
+  margin: 20px 0;
+  text-transform: uppercase;
+  color: green;
+  font-size: 20px;
+}
+.answer-wrapper p:nth-child(2) {
+  color: red;
 }

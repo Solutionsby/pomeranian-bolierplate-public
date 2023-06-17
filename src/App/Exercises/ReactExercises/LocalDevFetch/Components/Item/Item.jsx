@@ -1,5 +1,6 @@
 import './item.css';
 import { requestHendler } from '../../HelpFunctions';
+import { ButtonsToDoList } from '../Buttons/ButtonsToDoList';
 const parsDate = (date) => {
   const dateObj = new Date(date);
   return dateObj.toDateString();
@@ -30,13 +31,16 @@ export const ToDoItem = ({
   return (
     <div className="api-respons">
       <ul>
-        <button
-          onClick={() => {
-            deleteItem(id);
-          }}
-        >
-          Delite
-        </button>
+        <div className="left-item-side">
+          <ButtonsToDoList
+            className={'button-to-do delete-to-do'}
+            onClick={() => {
+              deleteItem(id);
+            }}
+          >
+            Usuń
+          </ButtonsToDoList>
+        </div>
         <li>
           <h1>Tytuł - {title}</h1>
         </li>

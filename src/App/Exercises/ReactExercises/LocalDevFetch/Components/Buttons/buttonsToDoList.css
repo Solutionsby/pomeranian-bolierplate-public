@@ -10,6 +10,14 @@
   font-size: 21px;
   font-weight: bold;
   background-color: #fe3756;
+  cursor: pointer;
+  transition: 0.5 s;
+}
+.delete-to-do {
+  margin-right: 20px;
+}
+.button-to-do:hover {
+  background-color: #03c988;
 }
 .forms-add-button {
   background-color: #23213d;
