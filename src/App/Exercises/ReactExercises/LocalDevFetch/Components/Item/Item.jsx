@@ -1,6 +1,10 @@
 import './item.css';
 import { requestHendler } from '../../HelpFunctions';
 import { ButtonsToDoList } from '../Buttons/ButtonsToDoList';
+import { TrashIcon } from '../../../../../Components/Icons/TrashIcon';
+import { useState } from 'react';
+import { setterFunction } from '../../HelpFunctions';
+import { FormsToDo } from '../Forms/FormsToDo';
 const parsDate = (date) => {
   const dateObj = new Date(date);
   return dateObj.toDateString();
@@ -13,25 +17,38 @@ export const ToDoItem = ({
   isDone,
   note,
   doneDate,
-  setError,
   loadTheData,
+  setIsActiveForms,
+  setIsEdyting,
 }) => {
+  const [isDeleteDone, setIsDeleteDone] = useState(true);
+  const [statusError, setstatusError] = useState(false);
+
   const deleteItem = async (id) => {
     requestHendler('DELETE', id)
       .then((jesonResponse) => loadTheData(jesonResponse))
-      .catch((errorMesage) => setError(errorMesage));
+      .catch(() => setIsDeleteDone(false));
   };
 
   const updateTheMark = async (id) => {
     requestHendler('PUT', id, true)
       .then((jesonResponse) => loadTheData(jesonResponse))
-      .catch((errorMesage) => setError(errorMesage));
+      .catch(() => setstatusError(true));
   };
   //   Wystylowac to
   return (
     <div className="api-respons">
       <ul>
         <div className="left-item-side">
+          {isDeleteDone ? (
+            <TrashIcon color={'#000000'} />
+          ) : (
+            <div className="to-do-delete-items">
+              <TrashIcon color={'#ff0000'} />
+              <p>Nie udalo sie usunąć </p>
+            </div>
+          )}
+
           <ButtonsToDoList
             className={'button-to-do delete-to-do'}
             onClick={() => {
@@ -39,6 +56,22 @@ export const ToDoItem = ({
             }}
           >
             Usuń
+          </ButtonsToDoList>
+          <ButtonsToDoList
+            className={'button-to-do'}
+            onClick={() => {
+              setterFunction(true, setIsActiveForms);
+              setIsEdyting({
+                flag: true,
+                id: id,
+                method: 'PUT',
+                title: title,
+                note: note,
+                author: author,
+              });
+            }}
+          >
+            Edytuj
           </ButtonsToDoList>
         </div>
         <li>
@@ -49,11 +82,17 @@ export const ToDoItem = ({
           <p>{parsDate(createdAt)}</p>
         </li>
         <li>note - {note}</li>
-        <li className="isDone" onClick={() => updateTheMark(id)}>
+        {/* mozna zrobic z tego komponent, koleny przypadek z czerwienia   */}
+        <li
+          className="isDone"
+          onClick={isDone ? null : () => updateTheMark(id)}
+        >
           {isDone ? <p>&#10003;</p> : <p className="grayOne">&#10003;</p>}
         </li>
         <li>
-          <p className="doneDate">{doneDate ? parsDate(doneDate) : ' '}</p>
+          <p className="doneDate">
+            {isDone ? parsDate(doneDate) : statusError ? 'Nie ukonczone' : ''}
+          </p>
         </li>
         <br />
       </ul>

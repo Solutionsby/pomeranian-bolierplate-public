@@ -37,3 +37,10 @@ h2 {
   margin: 10vh auto;
   justify-content: center;
 }
+.to-do-delete-items {
+  display: flex;
+  flex-direction: column;
+}
+.left-item-side .to-do-delete-items p {
+  color: red;
+}

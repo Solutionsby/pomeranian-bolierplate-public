@@ -1,94 +1,161 @@
 import { useState } from 'react';
 import './formsToDo.css';
+import { requestHendler } from '../../HelpFunctions';
 import { setterFunction } from '../../HelpFunctions';
 import { ButtonsToDoList } from '../Buttons/ButtonsToDoList';
 
-export const FormsToDo = ({ setIsActiveForms, loadTheData }) => {
-  const [dataTitle, SetDataTitle] = useState('');
-  const [dataAuthor, SetDataAuthor] = useState('');
-  const [dataContext, SetDataContex] = useState('');
+export const FormsToDo = ({
+  setIsActiveForms,
+  loadTheData,
+  isEdyting,
+  setIsEdyting,
+}) => {
+  const editingObj = isEdyting;
   const [answer, setAsnwer] = useState('');
   const [erroAnswer, setErrorAnswer] = useState('');
   const [isError, setIsError] = useState(false);
 
-  const sendDataToApi = async (title, author, context) => {
-    console.log(' Chyba poszlo ');
-    const respons = await fetch('http://localhost:3333/api/todo', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        title: title,
-        note: context,
-        author: author,
-      }),
-    });
+  const [title, setTitle] = useState(isEdyting.flag ? editingObj.title : '');
+  const [note, setNote] = useState(isEdyting.flag ? editingObj.note : '');
+  const [author, setAuthor] = useState(isEdyting.flag ? editingObj.author : '');
+  const [isPopUpVisible, setPopUpVisible] = useState(false);
 
-    if (respons.status === 200) {
-      setAsnwer(' Ok Udało się dodać zadanie');
-    }
-    if (respons.status !== 200) {
-      setIsError(true);
-      setErrorAnswer('Wystapił błąd, dodaj ponownie ');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  const editToDo = async () => {
+    requestHendler(editingObj.method, editingObj.id, undefined, {
+      title: title,
+      note: note,
+      author: author,
+    })
+      .then(() => setAsnwer(' Ok Udało się edytowac zadanie'))
+      .catch(() => {
+        setIsError(true);
+        setErrorAnswer('Wystapił błąd, dodaj ponownie ');
+      });
+  };
+
+  const pushANewTodo = async () => {
+    requestHendler('POST', undefined, undefined, {
+      title: title,
+      note: note,
+      author: author,
+    })
+      .then(() => setAsnwer(' Ok Udało się dodać zadanie'))
+      .catch(() => {
+        setIsError(true);
+        setErrorAnswer('Wystapił błąd, dodaj ponownie ');
+      });
+  };
+
+  const createANewTodo = () => {
+    if (title !== '' && author !== '' && note === '') {
+      setPopUpVisible(true);
+    } else {
+      pushANewTodo();
     }
   };
+
   return (
     <div className="forms-to-do-list-wrepper">
       <div className="forms-title div-input-forms-wrapper">
-        <h2>Tytul</h2>
-        <input
-          className="to-do-list-input "
-          type="text"
-          placeholder="Title"
-          onChange={(e) => setterFunction(e.target.value, SetDataTitle)}
-        />
+        <form onSubmit={handleSubmit}>
+          <h2>Tytuł</h2>
+          <input
+            type="text"
+            name="title"
+            value={title}
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+          />
+          <h2>Author</h2>
+          <input
+            type="text"
+            name="author"
+            value={author}
+            onChange={(e) => {
+              setAuthor(e.target.value);
+            }}
+          />
+          <h2>Note</h2>
+          <textarea
+            rows="10"
+            type="text"
+            name="note"
+            value={note}
+            onChange={(e) => {
+              setNote(e.target.value);
+            }}
+          />
+          <div className="buttons-form">
+            {isEdyting ? (
+              <ButtonsToDoList
+                className={'button-to-do forms-add-button'}
+                type="submit"
+                onClick={() => {
+                  editToDo();
+                  setIsError(false);
+                }}
+              >
+                edytuj
+              </ButtonsToDoList>
+            ) : (
+              <ButtonsToDoList
+                className={'button-to-do forms-add-button'}
+                type="submit"
+                onClick={() => {
+                  createANewTodo();
+                  setIsError(false);
+                }}
+              >
+                Dodaj
+              </ButtonsToDoList>
+            )}
+            <ButtonsToDoList
+              className={'button-to-do forms-forword-button'}
+              onClick={() => {
+                setterFunction(false, setIsActiveForms);
+                loadTheData();
+                setAsnwer('');
+                setIsError(false);
+                setIsEdyting(false);
+              }}
+            >
+              Cofnij
+            </ButtonsToDoList>
+          </div>
+        </form>
       </div>
-      <div className="forms-author div-input-forms-wrapper">
-        <h2>Autor</h2>
-        <input
-          className="to-do-list-input "
-          type="text"
-          placeholder="Note"
-          onChange={(e) => setterFunction(e.target.value, SetDataAuthor)}
-        />
-      </div>
-      <div className="forms-contents div-input-forms-wrapper">
-        <h2>Treść</h2>
-        <input
-          className="to-do-list-input forms-contents-input"
-          type="text"
-          placeholder="Author"
-          onChange={(e) => setterFunction(e.target.value, SetDataContex)}
-        />
-      </div>
-      <div className="forms-action-button-wrapper">
-        <ButtonsToDoList
-          className={'button-to-do forms-forword-button'}
-          onClick={() => {
-            setterFunction(false, setIsActiveForms);
-            loadTheData();
-            setAsnwer('');
-            setIsError(false);
-          }}
-        >
-          Cofnij
-        </ButtonsToDoList>
-        <ButtonsToDoList
-          className={'button-to-do forms-add-button'}
-          onClick={() => {
-            sendDataToApi(dataTitle, dataAuthor, dataContext);
-            setIsError(false);
-          }}
-        >
-          Dodaj
-        </ButtonsToDoList>
-      </div>
+
       <div className="answer-wrapper">
         <p>{!isError && answer}</p>
         <p>{isError && erroAnswer}</p>
       </div>
+      {isPopUpVisible && (
+        <div className="pop-up-isVisible">
+          <div className="bgc-blur"></div>
+          <div className="pop-up">
+            <h2>Nie dodałes Notatki ! </h2>
+            <ButtonsToDoList
+              onClick={() => {
+                pushANewTodo();
+                setPopUpVisible(false);
+              }}
+            >
+              Tak
+            </ButtonsToDoList>
+            <ButtonsToDoList
+              onClick={() => {
+                setPopUpVisible(false);
+              }}
+            >
+              Nie
+            </ButtonsToDoList>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

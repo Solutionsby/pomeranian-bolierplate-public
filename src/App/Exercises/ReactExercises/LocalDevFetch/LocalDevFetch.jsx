@@ -11,6 +11,14 @@ export const LocalDevAndFetch = () => {
   const [isLoading, SetLoading] = useState(false);
   const [error, setError] = useState();
   const [isActiveForms, setIsActiveForms] = useState(false);
+  const [isEdyting, setIsEdyting] = useState({
+    flag: undefined,
+    id: undefined,
+    method: undefined,
+    title: undefined,
+    note: undefined,
+    author: undefined,
+  });
 
   const loadTheData = async () => {
     SetLoading(true);
@@ -24,6 +32,15 @@ export const LocalDevAndFetch = () => {
   useEffect(() => {
     loadTheData();
   }, []);
+  if (isActiveForms)
+    return (
+      <FormsToDo
+        setIsActiveForms={setIsActiveForms}
+        loadTheData={loadTheData}
+        isEdyting={isEdyting}
+        setIsEdyting={setIsEdyting}
+      />
+    );
   return (
     <div className="api-respons">
       {error && (
@@ -57,7 +74,6 @@ export const LocalDevAndFetch = () => {
       )}
 
       {!error &&
-        !isActiveForms &&
         array.map(
           ({ id, title, createdAt, author, isDone, note, doneDate }) => (
             <ToDoItem
@@ -67,9 +83,12 @@ export const LocalDevAndFetch = () => {
               createdAt={createdAt}
               author={author}
               isDone={isDone}
+              doneDate={doneDate}
               note={note}
               loadTheData={loadTheData}
               setError={setError}
+              setIsActiveForms={setIsActiveForms}
+              setIsEdyting={setIsEdyting}
             />
           )
         )}
@@ -94,13 +113,6 @@ export const LocalDevAndFetch = () => {
             Dodaj Zadanie
           </ButtonsToDoList>
         </div>
-      )}
-
-      {isActiveForms && (
-        <FormsToDo
-          setIsActiveForms={setIsActiveForms}
-          loadTheData={loadTheData}
-        />
       )}
     </div>
   );
