@@ -4,6 +4,7 @@ import { ButtonsToDoList } from '../Buttons/ButtonsToDoList';
 import { TrashIcon } from '../../../../../Components/Icons/TrashIcon';
 import { useState } from 'react';
 import { setterFunction } from '../../HelpFunctions';
+
 const parsDate = (date) => {
   const dateObj = new Date(date);
   return dateObj.toDateString();
