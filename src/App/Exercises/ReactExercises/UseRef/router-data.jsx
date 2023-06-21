@@ -1,10 +1,10 @@
 import { UseRef } from './UseRef';
 
 export const UseRefData = {
-  path: 'some-path-that-you-wants',
-  date: '12-12-2023',
-  linkLabel: 'EmptyComponentWithRouting',
+  path: 'useRef',
+  date: '21-06-2023',
+  linkLabel: 'useRefComponent',
   blockNo: 1,
   element: <UseRef />,
-  tags: ['components'],
+  tags: ['useRef', 'react', 'hook', 'javascript'],
 };
