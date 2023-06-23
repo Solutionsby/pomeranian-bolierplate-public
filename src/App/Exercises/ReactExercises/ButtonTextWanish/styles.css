@@ -22,7 +22,7 @@ form {
   top: 3vh;
   left: 15%;
 }
-input {
+.textinput {
   width: 488px;
   height: 48px;
   border: solid black 1px;

@@ -1,7 +1,29 @@
-div.inputs-wrapper-form {
+.form-wrapper-div {
   display: flex;
   flex-direction: column;
-  font-size: 16px;
-  font-weight: 700;
-  gap: 10px;
+}
+.form-wrapper-div .form-input-wrapper input {
+  height: auto;
+}
+.form-wrapper-div .form-input-wrapper label {
+  text-transform: uppercase;
+}
+.form-input-wrapper.radio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.form-input-wrapper.radio .radio,
+.form-input-wrapper.checkbox .checkbox {
+  width: 30px;
+}
+.form-wrapper-div.text {
+  gap: 20px;
+}
+.form-input-wrapper.text {
+  display: flex;
+  flex-direction: column;
+}
+.form-input-wrapper.text .text {
+  height: 35px;
 }

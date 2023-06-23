@@ -1,18 +1,27 @@
 import './select.css';
-export const Select = ({ children, name, className, objValues, getValue }) => {
-  console.log();
+import Select from 'react-select';
+
+export const Selects = ({
+  children,
+  name,
+  className,
+  objValues,
+  setValue,
+  value,
+  placeHolder,
+}) => {
+  const MyOptions = objValues;
   return (
     <div className={className}>
-      <label For={name}>{children}</label>
-      <select
-        name={name}
-        id={name}
-        onChange={(e) => getValue(e.target.value, 'product')}
-      >
-        {objValues.map(({ productname, productvalue }) => (
-          <option value={productvalue}>{productname}</option>
-        ))}
-      </select>
+      <h3>{children}</h3>
+      <Select
+        placeholder={placeHolder}
+        options={MyOptions}
+        value={MyOptions.find((option) => option.value === value)}
+        onChange={(ObjValue) => {
+          setValue(ObjValue.value, name);
+        }}
+      />
     </div>
   );
 };
