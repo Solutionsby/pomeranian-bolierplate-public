@@ -5,8 +5,12 @@ import './styles.css';
 import { Sections } from './Components/Sections/Sections';
 import { TextArea } from './Components/TextArea/TextArea';
 import { ButtonForms } from './Components/Button/ButtonForm';
+import { paymentMethod } from './Components/DB/payment';
+import { additionalOptions } from './Components/DB/additionalOptions';
+import { buyerData } from './Components/DB/buyerData';
 
 export const Forms = () => {
+  const [password, setPassword] = useState('');
   const [productForm, setProductForm] = useState({
     product: '',
     paymentMethod: '',
@@ -15,11 +19,18 @@ export const Forms = () => {
       introDoGitHub: false,
       materialyDodatkowe: false,
     },
+    buyerData: {
+      name: '',
+      nickName: '',
+      adres: '',
+      emailAdress: '',
+      telephonNuber: '',
+      note: '',
+    },
   });
   const setValue = (val, inputType) => {
     setProductForm({ ...productForm, [inputType]: val });
   };
-  console.log(productForm.product);
 
   // // setProductForm({
   // //   ...productForm,
@@ -28,6 +39,9 @@ export const Forms = () => {
   // //     ustawienieSrodowiska: false,
   // //   },
   // });
+  const isProperNameAndSurname = productForm.buyerData.name
+    .trim()
+    .includes(' ');
 
   const passwordGen = () => {
     const chars =
@@ -60,97 +74,26 @@ export const Forms = () => {
         </Selects>
 
         <Inputs
-          type={'radio'}
-          name={'paymentMethod'}
+          constexName={'paymentMethod'}
           className={'form-input-wrapper radio'}
           setValue={setValue}
-          objValues={[
-            {
-              label: 'blik',
-              method: 'blik',
-              name: 'paymentMethod',
-              type: 'radio',
-            },
-            {
-              label: 'paypal',
-              method: 'paypal',
-              name: 'paymentMethod',
-              type: 'radio',
-            },
-            {
-              label: 'przelew tradycyjny',
-              method: 'przelew tradycyjny',
-              name: 'paymentMethod',
-              type: 'radio',
-            },
-          ]}
+          options={paymentMethod}
         >
           Wybierz formę płatności
         </Inputs>
 
         <Inputs
-          type={'checkbox'}
           className={'form-input-wrapper checkbox '}
-          objValues={[
-            {
-              label: 'ustawienie środowiska',
-              method: 'ustawienie środowiska',
-              name: 'additionalOptions',
-              type: 'checkbox',
-            },
-            {
-              label: 'intro do GitHub',
-              method: 'intro do GitHub',
-              name: 'additionalOptions',
-              type: 'checkbox',
-            },
-            {
-              label: 'Materialy Dodatkowe',
-              method: 'Materialy Dodatkowe',
-              name: 'additionalOptions',
-              type: 'checkbox',
-            },
-          ]}
+          options={additionalOptions}
         >
           Opcje dodatkowe do zamówienia{' '}
         </Inputs>
       </Sections>
+
       <Sections SectionTitle={'Dane do Realizacji zamówienia'}>
         <Inputs
-          type={'text'}
           className={`form-input-wrapper text`}
-          objValues={[
-            {
-              label: 'imię i Nazwisko',
-              placeHolder: 'Imię i Nazwisko',
-              name: 'name',
-              type: 'text',
-            },
-            {
-              label: 'Twój pseudonim',
-              placeHolder: 'Pseudonim',
-              name: 'nickName',
-              type: 'text',
-            },
-            {
-              label: 'Adres do wysyłki',
-              placeHolder: 'adres, na który mamy wysłać zamówienie',
-              name: 'adres',
-              type: 'text',
-            },
-            {
-              label: 'Adres do e-mail',
-              placeHolder: 'jan.kowalski@gmail.com',
-              name: 'email',
-              type: 'text',
-            },
-            {
-              label: 'Numer Kontaktowy',
-              placeHolder: '+48 888 888 888',
-              name: 'tel',
-              type: 'text',
-            },
-          ]}
+          options={buyerData}
         ></Inputs>
         <TextArea
           cols={'10'}
@@ -165,7 +108,7 @@ export const Forms = () => {
       </Sections>
       <Sections SectionTitle={'Zakładanie Konta '}>
         <Inputs
-          objValues={[
+          options={[
             {
               type: 'checkBox',
               label: 'zakładam Konto',
@@ -174,12 +117,12 @@ export const Forms = () => {
             {
               type: 'text',
               label: 'moje Hasło',
-              placeHolder: 'test',
+              placeHolder: 'Podaj Hasło ',
             },
             {
               type: 'text',
               label: 'Powtorz hasło',
-              placeHolder: 't',
+              placeHolder: 'Powtorz Haslo ',
             },
           ]}
         >
@@ -188,7 +131,7 @@ export const Forms = () => {
       </Sections>
       <Sections SectionTitle={'Zgody i Newsletter'}>
         <Inputs
-          objValues={[
+          options={[
             {
               type: 'checkbox',
             },
@@ -197,7 +140,7 @@ export const Forms = () => {
           Realizując Zamówienie, akceptujesz regulamin naszego sklepu
         </Inputs>
         <Inputs
-          objValues={[
+          options={[
             {
               type: 'checkbox',
             },
