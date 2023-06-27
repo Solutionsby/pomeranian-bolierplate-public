@@ -20,7 +20,7 @@ export function SignInForm() {
   };
 
   return (
-    <div>
+    <div className="fire-base-wrapper">
       <input
         type="email"
         placeholder="Email"
@@ -33,7 +33,13 @@ export function SignInForm() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleSignIn}>Sign In</button>
+      <button
+        onClick={handleSignIn}
+        className="fire-base-sig-in
+      "
+      >
+        Sign In
+      </button>
     </div>
   );
 }
