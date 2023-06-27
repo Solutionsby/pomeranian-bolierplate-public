@@ -1,0 +1,25 @@
+.button-to-do {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 100px;
+  height: 50px;
+  color: white;
+  font-size: 21px;
+  font-weight: bold;
+  background-color: #fe3756;
+  cursor: pointer;
+  transition: 0.5 s;
+}
+.delete-to-do {
+  margin-right: 20px;
+}
+.button-to-do:hover {
+  background-color: #03c988;
+}
+.forms-add-button {
+  background-color: #23213d;
+  margin-left: 15px;
+}

@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+}
+
+.api-respons {
+  margin-bottom: 10px;
+}
+.api-respons ul {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.api-respons ul li h1 {
+  left: 0;
+}
+.api-respons ul p {
+  color: gray;
+}
+.isDone,
+.api-respons ul li p.doneDate {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  padding-right: 30px;
+}
+.api-respons ul li.isDone p {
+  font-size: 36px;
+  color: green;
+}
+.api-respons ul li.isDone p.grayOne {
+  color: gray;
+}
+.left-item-side {
+  display: flex;
+  margin-top: 20px;
+  justify-content: right;
+  width: 100%;
+}
