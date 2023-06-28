@@ -12,25 +12,29 @@ import { Setings } from './App/Components/Setings/Setings';
 import { MyCv } from './App/MyCv/MyCv';
 import { Blog } from './App/Blog';
 import { Faq } from './App/Faq/faq';
+import { store } from './App/store';
+import { Provider } from 'react-redux';
 
 export function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="" element={<Layout withSidebar />}>
-          <Route index element={<Navigate to="dashboard" />} />
-          <Route path="dashboard/*" element={<Dashboard />} />
-          <Route path="exercises/*" element={<Exercises />} />
-          <Route path="blocks/*" element={<Blocks />} />
-          <Route path="myCv/*" element={<MyCv />} />
-          <Route path="calendar/*" element={<Calendar />} />
-          <Route path="blog/*" element={<Blog />} />
-          <Route path="faq/*" element={<Faq />} />
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="" element={<Layout withSidebar />}>
+            <Route index element={<Navigate to="dashboard" />} />
+            <Route path="dashboard/*" element={<Dashboard />} />
+            <Route path="exercises/*" element={<Exercises />} />
+            <Route path="blocks/*" element={<Blocks />} />
+            <Route path="myCv/*" element={<MyCv />} />
+            <Route path="calendar/*" element={<Calendar />} />
+            <Route path="blog/*" element={<Blog />} />
+            <Route path="faq/*" element={<Faq />} />
 
-          <Route path="setings/*" element={<Setings />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+            <Route path="setings/*" element={<Setings />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }

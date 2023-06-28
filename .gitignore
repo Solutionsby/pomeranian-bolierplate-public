@@ -30,7 +30,7 @@ yarn-error.log*
 *.xml
 
 .vscode
-
+src/Firebase.js
 # eslint
 .eslintcache
 
