@@ -9,7 +9,7 @@ import { TwoInputVievRouterMetaData } from './TwoInput/router-data';
 import { welcomeVievRouterMetaData } from './WelcomView/router-data';
 import { GalleryVievRouterMetaData } from './Gallery/router-data';
 import { MaterialUIBasicElementsRouterMetaData } from './MaterialUIBasicElements/router-data';
-import { CounterRouterMetaData } from './Counter/router-data';
+import { CounterRouterMetaData } from './Redux/router-data';
 
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
