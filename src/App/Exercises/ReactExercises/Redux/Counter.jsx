@@ -39,9 +39,9 @@ export function Counter() {
           type="number"
           name=""
           id=""
+          value={number}
           onChange={(e) => dispatch(seterNumber(e.currentTarget.value))}
         />
-        {number}
       </div>
     </div>
   );
