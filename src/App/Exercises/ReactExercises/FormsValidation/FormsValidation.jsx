@@ -21,9 +21,9 @@ export const FormsValidation = () => {
   const isValidEmail = (email) => {
     return /\S+@\S+\.\S+/.test(email);
   };
-  const conteinUppercase = (str) => {
-    return /[A-Z]/.test(str);
-  };
+  // const conteinUppercase = (str) => {
+  //   return /[A-Z]/.test(str);
+  // };
 
   const sendFormData = (data) => {
     data.preventDefault();

@@ -15,11 +15,9 @@ export const MaterialUIBasicElements = () => {
 
   const MOUNTH_VALUE_MAX = 48;
   const MOUNTH_VALUE_MIN = 6;
-  const MOUNTH_STEP = 1;
 
   const CREDIT_VALUE_MAX = 500000;
   const CREDIT_VALUE_MIN = 10000;
-  const CREDIT_STEP = 500;
 
   const calculateRate = (cashValue, monthValue) => {
     if (
