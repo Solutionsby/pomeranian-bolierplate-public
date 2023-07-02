@@ -2,15 +2,15 @@ import { useState } from 'react';
 import './styles.css';
 
 export const Array = () => {
-  const [myList, setMyList] = useState([
-    'Marcin',
-    'Ania',
-    'Piotrek',
-    'Grześ',
-    'Natalia',
-    'Natan',
-  ]);
-  const [myObjectList, setObjectList] = useState([
+  // const [myList, setMyList] = useState([
+  //   'Marcin',
+  //   'Ania',
+  //   'Piotrek',
+  //   'Grześ',
+  //   'Natalia',
+  //   'Natan',
+  // ]);
+  const [myObjectList] = useState([
     {
       name: 'Kamil',
       age: 99,

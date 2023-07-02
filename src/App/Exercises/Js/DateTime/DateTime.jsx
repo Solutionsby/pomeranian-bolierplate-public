@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './styles.css';
 
 export const DateTime = () => {
-  const [myDate, setMydate] = useState(new Date());
+  const [myDate] = useState(new Date());
 
   // useEffect(() => {
   //   setMydate(new Date().getTime());
